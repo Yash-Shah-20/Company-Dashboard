@@ -1,0 +1,52 @@
+{% extends 'Company_Dashboard/base.html' %}
+{% load static %}
+
+
+{% block newcontent %}
+<div class="mdc-card p-0">
+
+    <h6 class="card-title card-padding pb-0 text-center mdc-typography mdc-theme--info mdc-typography--headline4">Customers</h6>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="text-center mdc-theme--info mdc-typography--headline4 ">Sr. No</th>
+                    <th class="text-center mdc-theme--info mdc-typography--headline4 ">Username</th>
+                    <th class="text-center mdc-theme--info mdc-typography--headline4 ">Email</th>
+                    <th class="text-end mdc-theme--info mdc-typography--headline4 ">Update</th>
+                    <th class="text-end mdc-theme--info mdc-typography--headline4 ">Remove</th>
+                </tr>
+            </thead>
+            <tbody class="list">
+
+                {% for i in Customer reversed %}
+                <tr>
+                    <td class="text-center">{{ forloop.counter }}</td>
+                    <td class="text-center">{{ i.fname }} {{ i.lname }}</td>
+                    <td class="text-center">{{ i.email }}</td>
+                    <td class="text-end">
+                        <a href="{% url 'UpdateCustomer/' i.id %}">
+                            <i class="material-icons mdc-button__icon">colorize</i>
+                        </a>
+                    </td>
+                    <td class="text-end">
+                        <a href="{% url 'DeleteCustomer/' i.id %}">
+                            <i class="material-icons mdc-button__icon">delete</i>
+                        </a>
+                    </td>
+                    
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<div height="10px">
+    <pre></pre>
+</div>
+<a href="{% url 'AddCustomer/' %}" class="mdc-button mdc-button--outlined outlined-button--info">ADD</a>
+<div height="10px">
+    <pre></pre>
+</div>
+{% endblock newcontent %}

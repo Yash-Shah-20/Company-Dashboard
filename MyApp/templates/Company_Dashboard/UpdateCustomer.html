@@ -1,0 +1,46 @@
+{% extends 'Company_Dashboard/base.html' %}
+{% load static %}
+
+{% block newcontent %}
+<div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-10">
+    <p class="mdc-typography--headline4 mdc-theme--info">Update CUSTOMER</p>
+</div>
+
+<form method="POST" action="">
+    {% csrf_token %}
+    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+        <div class="mdc-text-field">
+            <input type="text" name="custfname" class="mdc-text-field__input" id="text-field-hero-input1"
+                value="{{ Cust.fname}}">
+            <div class="mdc-line-ripple"></div>
+            <label for="text-field-hero-input" class="mdc-floating-label">First Name</label>
+        </div>
+    </div>
+    <hr>
+    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" hidden>
+        <div class="mdc-text-field">
+            <input type="text" name="custlname" class="mdc-text-field__input" id="text-field-hero-input2"
+                value="{{ Cust.lname}}">
+            <div class="mdc-line-ripple"></div>
+            <label for="text-field-hero-input" class="mdc-floating-label">Last Name</label>
+        </div>
+    </div>
+    <hr>
+    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+        <div class="mdc-text-field">
+            <input type="email" name="custemail" class="mdc-text-field__input" id="text-field-hero-input3"
+                value="{{ Cust.email}}">
+            <div class="mdc-line-ripple"></div>
+            <label for="text-field-hero-input" class="mdc-floating-label">Email</label>
+        </div>
+    </div>
+    <hr>
+    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12-desktop">
+        <button type="submit" class="mdc-button mdc-button--raised filled-button--info mdc-ripple-upgraded"
+            style="--mdc-ripple-fg-size:38px; --mdc-ripple-fg-scale:2.19553; --mdc-ripple-fg-translate-start:19.8125px, -4px; --mdc-ripple-fg-translate-end:13px, -1px;">
+            Update
+        </button>
+</form>
+
+
+{% endblock newcontent %}
